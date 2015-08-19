@@ -8,10 +8,10 @@ public class Main {
 	public static void main(String[] args) {	
 		List<Extensao> exs = new ArrayList<Extensao>();
 		
-		exs.add(new Extensao(".docx", true));
-		exs.add(new Extensao(".txt", true));
+		exs.add(new Extensao(".doc", true));
+		exs.add(new Extensao(".pdf", true));
 		
-		Pasta p = new Pasta("d:\\documentos",arrayToExtensao(exs));
+		Pasta p = new Pasta("d:\\documentos",ex);
 		
 		p.obterArquivos();
 	}

@@ -31,7 +31,6 @@ public class Pasta {
 		super();
 		this.caminho = caminho;
 		this.extensoes = extensoes;
-		this.caminhoArquivos = new ArrayList<String>();
 	}
 
 	public void obterArquivos(){
@@ -50,44 +49,22 @@ public class Pasta {
 					if (this.extensoes.length != 0){
 						for(Extensao ext: this.extensoes){
 							if( f.listFiles()[i].getAbsolutePath().endsWith(ext.getNome()) ){
-								this.caminhoArquivos.add(f.listFiles()[i].getAbsolutePath());
-								System.out.println(f.listFiles()[i].getAbsolutePath());
+								
 							}
 						}
 					}
 				}
 			}
-			
+			if(f.isFile()){
+				System.out.println("É um arquivo: " + f.getAbsolutePath());
+			}else{
+				System.out.println("Não é um arquivo: " + f.getAbsolutePath());
+			}
 			listaPastas.remove(0);
 			contador++;
 		}while(listaPastas.size()>0);
 		System.out.println(contador);
 		System.out.println("Número de .doc: " + contDoc);
-	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((caminho == null) ? 0 : caminho.hashCode());
-		return result;
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pasta other = (Pasta) obj;
-		if (caminho == null) {
-			if (other.caminho != null)
-				return false;
-		} else if (!caminho.equals(other.caminho))
-			return false;
-		return true;
 	}
 	
 }

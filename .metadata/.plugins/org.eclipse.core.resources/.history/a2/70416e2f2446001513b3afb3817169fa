@@ -65,29 +65,4 @@ public class Pasta {
 		System.out.println("Número de .doc: " + contDoc);
 	}
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((caminho == null) ? 0 : caminho.hashCode());
-		return result;
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pasta other = (Pasta) obj;
-		if (caminho == null) {
-			if (other.caminho != null)
-				return false;
-		} else if (!caminho.equals(other.caminho))
-			return false;
-		return true;
-	}
-	
 }
