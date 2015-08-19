@@ -36,9 +36,9 @@ public class Pasta {
 
 	public void obterArquivos(){
 		List<String> listaPastas = new ArrayList<String>();
-		
+	
 		listaPastas.add(caminho);
-		int contador = 0, contDoc = 0;
+
 		do{
 			File f = new File(listaPastas.get(0));
 			for (int i = 0; i < f.listFiles().length; i++) {
@@ -57,12 +57,9 @@ public class Pasta {
 					}
 				}
 			}
-			
-			listaPastas.remove(0);
-			contador++;
+
 		}while(listaPastas.size()>0);
-		System.out.println(contador);
-		System.out.println("Número de .doc: " + contDoc);
+
 	}
 	
 	@Override
