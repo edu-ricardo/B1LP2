@@ -3,10 +3,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pasta {
+public class Pasta implements Runnable{
 	private String caminho;
 	private Extensao extensoes[];
 	private List<String> caminhoArquivos;
+	private Thread thread;
+	private static int nDreds;
 	
 	public String getCaminho() {
 		return caminho;
@@ -32,9 +34,48 @@ public class Pasta {
 		this.caminho = caminho;
 		this.extensoes = extensoes;
 		this.caminhoArquivos = new ArrayList<String>();
+		
+		thread = new Thread(this);		
+		nDreds++;
 	}
-
+	
+	public void run(){
+		thread.start();
+	}
+	
+	public static int getnDreds() {
+		return nDreds;
+	}
+	
+	public void obterArquivosProfundidade(String caminho){
+		File f = new File(caminho);
+		
+		File[] filhos = f.listFiles();
+		
+		for(File filho: filhos){
+			if(filho.isDirectory()){
+				obterArquivosProfundidade(filho.getAbsolutePath());
+			}else{
+				if (this.extensoes.length != 0){
+					for(Extensao ext: this.extensoes){
+						if( filho.getAbsolutePath().endsWith(ext.getNome()) ){
+							this.caminhoArquivos.add(filho.getAbsolutePath());
+							System.out.println(filho.getAbsolutePath());
+						}
+					}
+				}
+			}
+				
+		}
+	}
+		
+	public void obterArquivosProfundidadeAux(){
+		this.obterArquivosProfundidade(this.caminho);		
+	}
+	
 	public void obterArquivos(){
+		run();
+		
 		List<String> listaPastas = new ArrayList<String>();
 	
 		listaPastas.add(caminho);

@@ -1,19 +1,17 @@
 package br.edu.ifsp.pesquisaarquivos;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Main {
-
+	public static List<Extensao> exs = new ArrayList<Extensao>();
+	public static Set<Pasta> pastas = new HashSet<Pasta>();
+	
 	public static void main(String[] args) {	
-		List<Extensao> exs = new ArrayList<Extensao>();
+		for(;;){
+			
+		}
+		//criaPastas();
 		
-		exs.add(new Extensao(".docx", true));
-		exs.add(new Extensao(".txt", true));
-		
-		Pasta p = new Pasta("d:\\documentos",arrayToExtensao(exs));
-		
-		p.obterArquivos();
 	}
 
 	
@@ -21,8 +19,16 @@ public class Main {
 		
 	}
 	
-	public void criaPastas(){
+	public static void criaPastas(){
+		exs.add(new Extensao(".docx", true));
+		exs.add(new Extensao(".txt", true));
 		
+		pastas.add(new Pasta("d:\\documentos",arrayToExtensao(exs)));
+		pastas.add(new Pasta("d:\\angular+MongoDB",arrayToExtensao(exs)));
+		
+		for (Pasta p : pastas){
+			p.obterArquivos();
+		}		
 	}
 	
 	public void obterArquivos(){
