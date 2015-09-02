@@ -7,10 +7,7 @@ public class Main {
 	public static Set<Pasta> pastas = new HashSet<Pasta>();
 	
 	public static void main(String[] args) {	
-		for(;;){
-			
-		}
-		//criaPastas();
+		criaPastas();
 		
 	}
 
@@ -23,12 +20,24 @@ public class Main {
 		exs.add(new Extensao(".docx", true));
 		exs.add(new Extensao(".txt", true));
 		
-		pastas.add(new Pasta("d:\\documentos",arrayToExtensao(exs)));
-		pastas.add(new Pasta("d:\\angular+MongoDB",arrayToExtensao(exs)));
+		//pastas.add(new Pasta("d:\\documentos",arrayToExtensao(exs)));
+		//pastas.add(new Pasta("d:\\angular+MongoDB",arrayToExtensao(exs)));
+		pastas.add(new Pasta("d:\\",arrayToExtensao(exs)));
+		pastas.add(new Pasta("c:\\",arrayToExtensao(exs)));
 		
 		for (Pasta p : pastas){
 			p.obterArquivos();
-		}		
+		}
+		
+		
+		while ( Pasta.getnDreds() > 0 ){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public void obterArquivos(){

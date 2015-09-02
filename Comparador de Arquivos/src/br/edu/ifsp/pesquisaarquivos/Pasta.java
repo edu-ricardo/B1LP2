@@ -33,14 +33,40 @@ public class Pasta implements Runnable{
 		super();
 		this.caminho = caminho;
 		this.extensoes = extensoes;
-		this.caminhoArquivos = new ArrayList<String>();
-		
-		thread = new Thread(this);		
-		nDreds++;
+		this.caminhoArquivos = new ArrayList<String>();		
 	}
 	
 	public void run(){
-		thread.start();
+		nDreds++;
+		List<String> listaPastas = new ArrayList<String>();
+	
+		listaPastas.add(caminho);
+
+		do{
+			File f = new File(listaPastas.get(0));
+			for (int i = 0; i < f.listFiles().length; i++) {
+				//System.out.println(f.listFiles()[i].getAbsolutePath());
+				File altFile = new File(f.listFiles()[i].getAbsolutePath());
+				if(altFile.isDirectory()){
+					if (altFile.listFiles().length > 0) {
+						listaPastas.add(altFile.getAbsolutePath());
+						System.out.println(altFile.getAbsolutePath());
+					}
+				}else{
+					if (this.extensoes.length != 0){
+						for(Extensao ext: this.extensoes){
+							if( altFile.getAbsolutePath().endsWith(ext.getNome()) ){
+								this.caminhoArquivos.add(altFile.getAbsolutePath());
+								System.out.println(altFile.getAbsolutePath());
+							}
+						}
+					}
+				}
+			}
+			listaPastas.remove(0);
+		}while(listaPastas.size()>0);
+
+		nDreds--;
 	}
 	
 	public static int getnDreds() {
@@ -74,34 +100,9 @@ public class Pasta implements Runnable{
 	}
 	
 	public void obterArquivos(){
-		run();
-		
-		List<String> listaPastas = new ArrayList<String>();
-	
-		listaPastas.add(caminho);
-
-		do{
-			File f = new File(listaPastas.get(0));
-			for (int i = 0; i < f.listFiles().length; i++) {
-				//System.out.println(f.listFiles()[i].getAbsolutePath());
-				File altFile = new File(f.listFiles()[i].getAbsolutePath());
-				if(altFile.isDirectory()){
-					listaPastas.add(f.listFiles()[i].getAbsolutePath());
-				}else{
-					if (this.extensoes.length != 0){
-						for(Extensao ext: this.extensoes){
-							if( f.listFiles()[i].getAbsolutePath().endsWith(ext.getNome()) ){
-								this.caminhoArquivos.add(f.listFiles()[i].getAbsolutePath());
-								System.out.println(f.listFiles()[i].getAbsolutePath());
-							}
-						}
-					}
-				}
-			}
-
-		}while(listaPastas.size()>0);
-
-	}
+		thread = new Thread(this);
+		thread.start();
+}
 	
 	@Override
 	public int hashCode() {
