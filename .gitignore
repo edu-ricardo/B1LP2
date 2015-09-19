@@ -55,3 +55,6 @@ Temporary Items
 .metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
 *.index
 .recommenders/caches/identified-project-coordinates.json
+*.log
+*.log
+.metadata/.log
