@@ -2,8 +2,6 @@ package br.edu.ifsp.pesquisaarquivos;
 
 import java.io.IOException;
 
-import javax.swing.JOptionPane;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.util.PDFTextStripper;
 
