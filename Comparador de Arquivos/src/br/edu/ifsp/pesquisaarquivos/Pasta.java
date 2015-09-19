@@ -50,14 +50,14 @@ public class Pasta implements Runnable{
 				if(altFile.isDirectory()){
 					if (altFile.listFiles().length > 0) {
 						listaPastas.add(altFile.getAbsolutePath());
-						System.out.println(altFile.getAbsolutePath());
+//						System.out.println(altFile.getAbsolutePath());
 					}
 				}else{
 					if (this.extensoes.length != 0){
 						for(Extensao ext: this.extensoes){
 							if( altFile.getAbsolutePath().endsWith(ext.getNome()) ){
 								this.caminhoArquivos.add(altFile.getAbsolutePath());
-								System.out.println(altFile.getAbsolutePath());
+//								System.out.println(altFile.getAbsolutePath());
 							}
 						}
 					}

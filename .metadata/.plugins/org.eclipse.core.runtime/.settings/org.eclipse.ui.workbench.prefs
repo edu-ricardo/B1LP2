@@ -1,4 +1,17 @@
+ACTIVE_HYPERLINK_COLOR=138,201,242
+CONFLICTING_COLOR=240,15,66
+CONTENT_ASSIST_BACKGROUND_COLOR=52,57,61
+CONTENT_ASSIST_FOREGROUND_COLOR=238,238,238
+ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.jdt.ui.presentation
+ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.jdt.ui.editors.textfont
 ENABLED_DECORATORS=org.eclipse.m2e.core.mavenVersionDecorator\:false,org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator\:true,org.eclipse.jdt.ui.override.decorator\:true,org.eclipse.jdt.ui.interface.decorator\:false,org.eclipse.jdt.ui.buildpath.decorator\:true,org.eclipse.m2e.core.maven2decorator\:true,org.eclipse.mylyn.context.ui.decorator.interest\:true,org.eclipse.mylyn.tasks.ui.decorators.task\:true,org.eclipse.mylyn.team.ui.changeset.decorator\:true,org.eclipse.team.cvs.ui.decorator\:true,org.eclipse.team.svn.ui.decorator.SVNLightweightDecorator\:true,org.eclipse.ui.LinkedResourceDecorator\:true,org.eclipse.ui.SymlinkDecorator\:true,org.eclipse.ui.VirtualResourceDecorator\:true,org.eclipse.ui.ContentTypeDecorator\:true,org.eclipse.ui.ResourceFilterDecorator\:false,org.eclipse.wst.jsdt.ui.override.decorator\:true,
+ERROR_COLOR=247,68,117
+HYPERLINK_COLOR=111,197,238
+INCOMING_COLOR=31,179,235
+OUTGOING_COLOR=238,238,238
 PLUGINS_NOT_ACTIVATED_ON_STARTUP=org.eclipse.m2e.discovery;
+RESOLVED_COLOR=108,210,17
 eclipse.preferences.version=1
+org.eclipse.jdt.ui.editors.textfont=1|Courier New|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|0|3|2|1|49|Courier New;
 org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands>\r\n<keyBinding commandId\="org.eclipse.debug.ui.commands.OpenRunConfigurations" contextId\="org.eclipse.debug.ui.debugging" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F9"/>\r\n</org.eclipse.ui.commands>
+overriddenByCSS=,ACTIVE_HYPERLINK_COLOR,CONFLICTING_COLOR,CONTENT_ASSIST_BACKGROUND_COLOR,CONTENT_ASSIST_FOREGROUND_COLOR,ERROR_COLOR,HYPERLINK_COLOR,INCOMING_COLOR,OUTGOING_COLOR,RESOLVED_COLOR,
