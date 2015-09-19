@@ -3,11 +3,11 @@ package br.edu.ifsp.pesquisaarquivos;
 import java.util.*;
 /*
  * Software de Comparação de testos de arquivo feito durante as Aulas de Java do 
- * IFSP, durante as Aulas de B1LP2
+ * IFSP, durante as Aulas de B1LP2.
  * 
  * @author <a href="http://github.com/edu-ricardo">Eduardo Ricardo</a>
  * @description Aula de Java
- * @version 
+ * @version 0.0.1
  */
 
 
@@ -18,19 +18,21 @@ public class Main {
 	
 	public static void main(String[] args) {	
 		criaPastas();
-		while (Pasta.getnDreds() != 0){
-			try {
+		System.out.println("Pós Criapastas()");
+		while (Pasta.getnDreds() > 0){
+			try {				
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("Pré-Carrega()");
 		carregaListaArquivos();
-		System.out.println("arqs.size()");	
-		System.out.println(arqs.size());
+		System.out.println("Pré-Carrega()");			
 		for (int i = 0; i < arqs.size(); i++) {
 			if (arqs.get(i).getCaminho().endsWith(".pdf")){
-				System.out.println(arqs.get(i).getCaminho());
+				//System.out.println(arqs.get(i).getCaminho());
+				arqs.get(i).lerArquivos();
 			}
 		}
 	}
@@ -52,8 +54,8 @@ public class Main {
 		exs.add(new Extensao(".pdf", true));
 		exs.add(new Extensao(".doc", true));
 
-		pastas.add(new Pasta("d:\\documentos",arrayToExtensao(exs)));
-		pastas.add(new Pasta("d:\\angular+MongoDB",arrayToExtensao(exs)));
+		pastas.add(new Pasta("d:\\pdf",arrayToExtensao(exs)));
+		pastas.add(new Pasta("d:\\pdf2",arrayToExtensao(exs)));
 		//pastas.add(new Pasta("d:\\",arrayToExtensao(exs)));
 		//pastas.add(new Pasta("c:\\",arrayToExtensao(exs)));
 		
@@ -63,11 +65,12 @@ public class Main {
 
 		while ( Pasta.getnDreds() > 0 ){
 			try {
-				Thread.sleep(10);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+		
 	}	
 	
 	public static Extensao[] arrayToExtensao(List<Extensao> extLocal){
