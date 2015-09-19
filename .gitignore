@@ -58,3 +58,4 @@ Temporary Items
 *.log
 *.log
 .metadata/.log
+.metadata/version.ini
