@@ -4,7 +4,7 @@ import java.util.Map;
 
 public abstract class Arquivo {
 	private String caminho;
-	private Map<String, Integer> mapa;
+	protected Map<String, Integer> mapa;
 	
 	
 	public abstract void lerArquivos();

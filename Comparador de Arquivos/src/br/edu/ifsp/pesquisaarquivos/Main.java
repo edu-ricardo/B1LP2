@@ -54,7 +54,7 @@ public class Main {
 		exs.add(new Extensao(".pdf", true));
 		exs.add(new Extensao(".doc", true));
 
-		pastas.add(new Pasta("d:\\pdf",arrayToExtensao(exs)));
+//		pastas.add(new Pasta("d:\\pdf",arrayToExtensao(exs)));
 		pastas.add(new Pasta("d:\\pdf2",arrayToExtensao(exs)));
 		//pastas.add(new Pasta("d:\\",arrayToExtensao(exs)));
 		//pastas.add(new Pasta("c:\\",arrayToExtensao(exs)));
