@@ -7,8 +7,7 @@ public class Pasta implements Runnable{
 	private String caminho;
 	private Extensao extensoes[];
 	private List<String> caminhoArquivos;
-	private Thread thread;
-	private static int nDreds;
+	private Thread thread;	
 	
 	public String getCaminho() {
 		return caminho;
@@ -37,7 +36,6 @@ public class Pasta implements Runnable{
 	}
 	
 	public void run(){
-		nDreds++;
 		List<String> listaPastas = new ArrayList<String>();
 	
 		listaPastas.add(caminho);
@@ -66,11 +64,6 @@ public class Pasta implements Runnable{
 			listaPastas.remove(0);
 		}while(listaPastas.size()>0);
 
-		nDreds--;
-	}
-	
-	public static int getnDreds() {
-		return nDreds;
 	}
 	
 	public void obterArquivosProfundidade(String caminho){

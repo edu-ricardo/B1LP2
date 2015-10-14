@@ -85,9 +85,9 @@ public class ArquivoPdf extends Arquivo{
 				//System.out.println(this.mapa.toString());	
 			}
 			
-			for (String key: this.mapa.keySet()) {
+			/*for (String key: this.mapa.keySet()) {
 				System.out.println("'"+key +"' <valor> "+ this.mapa.get(key));
-			}
+			}*/
 			
 		}
 	

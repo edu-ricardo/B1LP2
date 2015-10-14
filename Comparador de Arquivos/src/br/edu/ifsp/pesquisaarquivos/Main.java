@@ -9,38 +9,27 @@ import java.util.*;
  * @description Aula de Java
  * @version 0.0.1
  */
-
-
 public class Main {
 	public static List<Extensao> exs = new ArrayList<Extensao>();
 	public static Set<Pasta> pastas = new HashSet<Pasta>();
 	public static List<Arquivo> arqs = new ArrayList<Arquivo>();
 	
-	public static void main(String[] args) {	
+	public static void main(String[] args) {
 		criaPastas();
-		System.out.println("Pós Criapastas()");
-		while (Pasta.getnDreds() > 0){
-			try {				
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-		System.out.println("Pré-Carrega()");
-		carregaListaArquivos();
-		System.out.println("Pré-Carrega()");			
+		carregaListaArquivos();			
 		for (int i = 0; i < arqs.size(); i++) {
-			if (arqs.get(i).getCaminho().endsWith(".pdf")){
-				//System.out.println(arqs.get(i).getCaminho());
-				arqs.get(i).lerArquivos();
-			}
+			arqs.get(i).lerArquivos();	
+		}	
+		
+		for (Arquivo arq : arqs){
+			System.out.println(arq.getCaminho());
+			System.out.println("================================================");
 		}
 	}
 	
-	public static void carregaListaArquivos(){		
+	public static void carregaListaArquivos(){
 		for (Pasta pAux : pastas) {
 			List<String> arq = pAux.getCaminhoArquivos();			
-			System.out.println(arq.size());
 			for (int i = 0; i < arq.size(); i++) {
 				arqs.add(FactoryArquivo.criaArquivo(arq.get(i)));				
 			}
@@ -54,7 +43,7 @@ public class Main {
 		exs.add(new Extensao(".pdf", true));
 		exs.add(new Extensao(".doc", true));
 
-//		pastas.add(new Pasta("d:\\pdf",arrayToExtensao(exs)));
+		pastas.add(new Pasta("d:\\pdf",arrayToExtensao(exs)));
 		pastas.add(new Pasta("d:\\pdf2",arrayToExtensao(exs)));
 		//pastas.add(new Pasta("d:\\",arrayToExtensao(exs)));
 		//pastas.add(new Pasta("c:\\",arrayToExtensao(exs)));
@@ -63,7 +52,7 @@ public class Main {
 			p.obterArquivos();
 		}
 
-		while ( Pasta.getnDreds() > 0 ){
+		while ( Thread.activeCount() > 1){
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
